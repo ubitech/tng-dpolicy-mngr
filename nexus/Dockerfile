@@ -1,0 +1,5 @@
+FROM sonatype/nexus3:3.0.0
+
+EXPOSE 8081
+EXPOSE 8082
+EXPOSE 8083
