@@ -46,7 +46,7 @@ pipeline {
             echo 'Deploying in integration...'
           }
         }
-        stage('Deploying') {
+        stage('Deploying..') {
           steps {
             sh 'rm -rf tng-devops || true'
             sh 'git clone https://github.com/sonata-nfv/tng-devops.git'
