@@ -50,28 +50,28 @@ public class DeployedNSListener {
         log.info("I received this message " + messageToString);
 
         //deploy kjar to nexus
-        String groupId = "generic.policy.rule";
-        String version = "1.0.0-SNAPSHOT";
-        JSONObject messageToJSON = new JSONObject(messageToString);
-        String artifactId = messageToJSON.getString("deployed_graph");
-        String rules = messageToJSON.getString("rules");
-        createKjar(groupId, artifactId, version, rules);
-        boolean succesful_deploy = deployKjar(artifactId);
-        
-        if (!succesful_deploy) {return;}
-
-        //enforce policy
-        KieServices ks = KieServices.Factory.get();
-        ReleaseId releaseId2 = ks.newReleaseId(groupId, artifactId, version);
-        KieContainer kcontainer2 = ks.newKieContainer(releaseId2);
-        KieScanner kscanner2 = ks.newKieScanner(kcontainer2);
-
-        kscanner2.start(5000);
-
-        String sessionname = artifactId;
-        final KieSession ksession = kcontainer2.newKieSession(sessionname);
-
-        kieUtil.fireKieSession(ksession, sessionname);
+//        String groupId = "generic.policy.rule";
+//        String version = "1.0.0-SNAPSHOT";
+//        JSONObject messageToJSON = new JSONObject(messageToString);
+//        String artifactId = messageToJSON.getString("deployed_graph");
+//        String rules = messageToJSON.getString("rules");
+//        createKjar(groupId, artifactId, version, rules);
+//        boolean succesful_deploy = deployKjar(artifactId);
+//        
+//        if (!succesful_deploy) {return;}
+//
+//        //enforce policy
+//        KieServices ks = KieServices.Factory.get();
+//        ReleaseId releaseId2 = ks.newReleaseId(groupId, artifactId, version);
+//        KieContainer kcontainer2 = ks.newKieContainer(releaseId2);
+//        KieScanner kscanner2 = ks.newKieScanner(kcontainer2);
+//
+//        kscanner2.start(5000);
+//
+//        String sessionname = artifactId;
+//        final KieSession ksession = kcontainer2.newKieSession(sessionname);
+//
+//        kieUtil.fireKieSession(ksession, sessionname);
 
     }
 

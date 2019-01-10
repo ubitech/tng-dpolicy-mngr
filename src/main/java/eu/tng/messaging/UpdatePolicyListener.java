@@ -41,21 +41,21 @@ public class UpdatePolicyListener {
         String messageAsString = new String(policyUpdateInfo, StandardCharsets.UTF_8);
         log.info("New updatePolicy Message Received: " + messageAsString);
         
-        JSONObject policyUpdateInfoJson = new JSONObject(messageAsString);
-        String groupId = "generic.policy.rule";
-        String version = "1.0.0-SNAPSHOT";
-        String artifactId = policyUpdateInfoJson.getString("deployed_graph");
-        
-        Path artifactIdPath = Paths.get(artifactId);
-        
-        if (Files.exists(artifactIdPath)) {
-            String rules = policyUpdateInfoJson.getString("rules");
-            
-            createKjar(groupId, artifactId, version, rules);
-            deployKjar(artifactId);
-        } else {
-            log.info("update policy message ignored");
-        }
+//        JSONObject policyUpdateInfoJson = new JSONObject(messageAsString);
+//        String groupId = "generic.policy.rule";
+//        String version = "1.0.0-SNAPSHOT";
+//        String artifactId = policyUpdateInfoJson.getString("deployed_graph");
+//        
+//        Path artifactIdPath = Paths.get(artifactId);
+//        
+//        if (Files.exists(artifactIdPath)) {
+//            String rules = policyUpdateInfoJson.getString("rules");
+//            
+//            createKjar(groupId, artifactId, version, rules);
+//            deployKjar(artifactId);
+//        } else {
+//            log.info("update policy message ignored");
+//        }
         
     }
     

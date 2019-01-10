@@ -54,34 +54,34 @@ public class MonitoringListener {
         String messageAsString = new String(message, StandardCharsets.UTF_8);
         log.info("New Monitoring Message: " + messageAsString);
 
-        JSONObject messageToJSON = new JSONObject(messageAsString);
-         String objectType = messageToJSON.getString("ObjectType");
-        String containerName = messageToJSON.getString("deployed_graph");
-
-        if (!kieUtil.seeThreadMap().containsKey(containerName)) {
-            log.info("Missing Knowledge base " + containerName);
-            return;
-        }
-
-       String objectAsString = messageToJSON.getJSONObject("ObjectData").toString();
-        KieSession ksession = (KieSession) kieUtil.seeThreadMap().get(containerName);
-
-
-       
-        switch (objectType) {
-            case "SampleFact":
-                SampleFact sampleFact = new Gson().fromJson(objectAsString, SampleFact.class);
-                //System.out.println("convertStringToObject result for sample fact object " + sampleFact.getValue());
-                ksession.insert(sampleFact);
-                break;
-            case "MonitoredComponent":
-                MonitoredComponent component = new Gson().fromJson(objectAsString, MonitoredComponent.class);
-                EntryPoint monitoringStream = ksession.getEntryPoint("MonitoringStream");
-                monitoringStream.insert(component);
-                break;
-            default:
-                 break;
-        }
+//        JSONObject messageToJSON = new JSONObject(messageAsString);
+//         String objectType = messageToJSON.getString("ObjectType");
+//        String containerName = messageToJSON.getString("deployed_graph");
+//
+//        if (!kieUtil.seeThreadMap().containsKey(containerName)) {
+//            log.info("Missing Knowledge base " + containerName);
+//            return;
+//        }
+//
+//       String objectAsString = messageToJSON.getJSONObject("ObjectData").toString();
+//        KieSession ksession = (KieSession) kieUtil.seeThreadMap().get(containerName);
+//
+//
+//       
+//        switch (objectType) {
+//            case "SampleFact":
+//                SampleFact sampleFact = new Gson().fromJson(objectAsString, SampleFact.class);
+//                //System.out.println("convertStringToObject result for sample fact object " + sampleFact.getValue());
+//                ksession.insert(sampleFact);
+//                break;
+//            case "MonitoredComponent":
+//                MonitoredComponent component = new Gson().fromJson(objectAsString, MonitoredComponent.class);
+//                EntryPoint monitoringStream = ksession.getEntryPoint("MonitoringStream");
+//                monitoringStream.insert(component);
+//                break;
+//            default:
+//                 break;
+//        }
 
     }
 
