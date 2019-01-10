@@ -35,12 +35,6 @@ public class PolicyEngineController {
     public String hello() {
         return "Hello from Spring Boot!";
     }
-
-    @RequestMapping("/hello1")
-    public String hello1() {
-        return "Hello1 from Spring Boot!";
-    }
-
     /*
     
     
