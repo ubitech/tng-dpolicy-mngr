@@ -51,7 +51,7 @@ pipeline {
             sh 'rm -rf tng-devops || true'
             sh 'git clone https://github.com/sonata-nfv/tng-devops.git'
             dir(path: 'tng-devops') {
-              sh 'ansible-playbook roles/sp.yml -i environments -e "target=sta-sp-v4.0  component=policy-manager"'
+              sh 'ansible-playbook roles/sp.yml -i environments -e "target=int-sp  component=policy-manager"'
             }
             
           }
