@@ -31,10 +31,14 @@ public class PolicyEngineController {
 //
 //    @Autowired
 //    private FanoutExchange fanout;
-
     @RequestMapping("/hello")
     public String hello() {
         return "Hello from Spring Boot!";
+    }
+
+    @RequestMapping("/hello1")
+    public String hello1() {
+        return "Hello1 from Spring Boot!";
     }
 
     /*
@@ -65,10 +69,7 @@ public class PolicyEngineController {
 //            m.getMessageProperties().setCorrelationId("eno adio galdkgjald");
 //            return m;
 //        });
-        
 //        template.convertAndSend(fanout.getName(), "", "se parakalooooooooooo");
-        
-
         return true;
     }
 
