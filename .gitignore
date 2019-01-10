@@ -1,5 +1,3 @@
-/target/
-!target/tng-dpolicy-mngr-1.5.0.jar
 nb-configuration.xml
 /.mvn
 !.mvn/wrapper/maven-wrapper.jar
