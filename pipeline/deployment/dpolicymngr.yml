@@ -1,0 +1,13 @@
+- name: DISTRIBUTED POLICY MANAGER (Docker Container)
+  docker_container:
+    name: tng-dpolicy-mngr
+    image: "sonatanfv/tng-dpolicy-mngr:{{ sp_ver }}"
+    state: started
+    restart_policy: "always"
+    network_mode: bridge
+    networks:
+      - name: "{{ docker_network_name }}"
+        aliases:
+          - tng-dpolicy-mngr
+    published_ports:
+      - "8090:8090"
